@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UserId } from 'src/users/user-id.decorator';
+import { UserId } from '../users/user-id.decorator';
 import { Repository } from 'typeorm';
 import { Note } from '../notes/entities/note.entity';
 import { CreateNoteDto } from './dto/create-note.dto';
@@ -30,9 +30,7 @@ export class NotesService {
   }
 
   async update(id: string, updateNoteDto: UpdateNoteDto, userId: string): Promise<boolean> {
-    console.log(id, userId)
     const result = await this.notesRepository.update({id, userId} , updateNoteDto);
-    console.log(result);
     return !!result.affected;
   }
 

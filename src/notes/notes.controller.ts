@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query, UsePipes, ValidationPipe } from '@nestjs/common';
-import { UserId } from 'src/users/user-id.decorator';
 import { NotesService } from './notes.service';
 import { Note } from '../notes/entities/note.entity';
 import { CreateNoteDto } from './dto/create-note.dto';
 import { UpdateNoteDto } from './dto/update-note.dto';
 import { QueryNoteDto } from './dto/query.dto';
+import { UserId } from '../users/user-id.decorator';
 
 @Controller('notes')
 export class NotesController {
@@ -15,7 +15,7 @@ export class NotesController {
   @UsePipes(ValidationPipe)
   @Get('my')
   getAllByUserId(@UserId() userId: string, @Query() query: QueryNoteDto): Promise<Note[]> {
-    if(query.completed) 
+    if(query.hasOwnProperty('completed')) 
       return this.notesService.getAllByUserIdFiltered(userId, query.completed==='true')
 
     return this.notesService.getAllByUserId(userId);
