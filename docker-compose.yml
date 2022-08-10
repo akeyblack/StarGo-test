@@ -4,12 +4,12 @@ services:
   db:
     image: mysql:8
     ports:
-      - 3306:3306
+      - ${DB_PORT:-3306}:3306
     volumes:
       - ./docker/mysql:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: StarGo
-      MYSQL_PASSWORD: StarGo
-      MYSQL_USER: StarGo
-      MYSQL_DATABASE: todolist
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-StarGo}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-StarGo}
+      MYSQL_USER: ${DB_USERNAME:-StarGo}
+      MYSQL_DATABASE: ${DB_NAME:-todolist}
