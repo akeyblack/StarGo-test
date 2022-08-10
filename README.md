@@ -54,7 +54,7 @@ $ npm start
  /notes/id/mark-as-completed (PATCH)
 ```
 ```bash
- /notes (DELETE)
+ /notes/id (DELETE)
 ```
 
 ## Other Info
