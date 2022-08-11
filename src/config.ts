@@ -8,7 +8,7 @@ export const config = () => ({
     username: env.DB_USERNAME ?? 'StarGo',
     password: env.DB_PASSWORD ?? 'StarGo',
     database: env.DB_NAME ?? 'todolist',
-    synchronize: false,
+    synchronize: true,
     logging: false,
     entities: ['dist/**/entities/*.entity.js'],
   },
