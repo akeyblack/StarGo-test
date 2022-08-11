@@ -2,6 +2,17 @@
 dotenv included on purpose, it's responsible for database configuration in docker-compose and application
 <br/><br/>
 
+# Installation
+
+
+install depedencies
+
+```bash
+$ npm install
+```
+
+<br/>
+
 ## Tests
 
 
